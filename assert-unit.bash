@@ -68,7 +68,7 @@ function assert() {
 	    local regexp="${2}"
 
 	    
-	    [[ ! "${actual}" =~ "${regexp}" ]] && {	
+	    [[ ! "${actual}" =~ ${regexp} ]] && {	
 		failure "${message}"
 	    } || {
 		success "${message}"
@@ -118,15 +118,4 @@ function assert() {
 	    exit 0
     esac
 }
-s() {
-    echo "hi"
-    return 3
-}
-d() {
-    echo "Hello World"
-}
-assert expect "victory" "victory" "Test Case to Check if Favour equals Victory" "it succeeds"
-#assert expect "$(s)" "$(d)" "Check function output" "it fails"
-assert status s "3" "Check return status" "it returns 3"
-assert done
-assert regex  "victory" ".*y" "Test Regex" 
+
