@@ -9,20 +9,25 @@ green="32m"
 yellow="33m"
 lightGrey="37m"
 
+declare -i fails=0
+declare -i succ=0
+
 function failure() {
     
     printf "\t\t${open}${bold}${red}%b${close}" "\u2716"
     printf "${open}${light}${lightGrey}  %s${close}\n" "Failure: ${message} "
+    fails=$((fails + 1))
+    
 }
 function success() {
     
     printf "\t\t${open}${bold}${green}%b${close}" "\u2714"
     printf "${open}${light}${lightGrey}  %s${close}\n" "Success: ${message} "
+    succ=$((succ + 1))
 }
 function assert() {
     local subcom="${1}"
-    declare -i fails
-    declare -i succ
+
     # take out the first argument which is  subcom from ${@} 
     shift
 
@@ -121,7 +126,7 @@ d() {
     echo "Hello World"
 }
 assert expect "victory" "victory" "Test Case to Check if Favour equals Victory" "it succeeds"
-assert expect "$(s)" "$(d)" "Check function output" "it fails"
+#assert expect "$(s)" "$(d)" "Check function output" "it fails"
 assert status s "3" "Check return status" "it returns 3"
 assert done
 assert regex  "victory" ".*y" "Test Regex" 
