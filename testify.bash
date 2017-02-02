@@ -88,23 +88,23 @@ function assert() {
 	    
 	    (( status == 0 )) && {
 
-		declare -F ${com} &>/dev/null
+		#declare -F ${com} &>/dev/null
 		
-		[[ $? == 0 ]] && {
-		    
-		    ${com} &>/dev/null
-		    status=$?
-		    
-		    [[ "${status}" != "${expectedStatus}" ]] && {
-			failure "${message}"
-		    } || {
-			success "${message}"
-		    }
-		    
-		}  || {
-		    
-		    printf "\t\t\t${open}${light}${red}%s${close}\n" "Cannot run this test"
+		#[[ $? == 0 ]] && {
+
+		${com} &>/dev/null
+		status=$?
+		
+		[[ "${status}" != "${expectedStatus}" ]] && {
+		    failure "${message}"
+		} || {
+		    success "${message}"
 		}
+		
+		#}  || {
+		
+		#   printf "\t\t\t${open}${light}${red}%s${close}\n" "Cannot run this test"
+		#}
 		
 	    } || {
 		printf "\t\t\t${open}${light}${red}%s${close}\n" "Cannot run this test"
