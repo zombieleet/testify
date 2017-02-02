@@ -4,7 +4,7 @@ testify is a lightweight unit testing framework for bash
 
 # Usage
 
-clone this repository `git clone https://github.com/zombieleet/testify.git
+clone this repository `git clone https://github.com/zombieleet/testify.git`
 
 create a test file then source testify.bash and the script you want to test in the test file
 
