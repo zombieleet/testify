@@ -116,6 +116,10 @@ function assert() {
 	    printf "\t${open}${light}${red}%s %d${close}\n" "Fails: " "${fails}"
 	    printf "\t${open}${light}${green}%s %d${close}\n" "Success: " "${succ}"
 	    exit 0
+	    ;;
+	  *)
+	  	printf "${open}${bold}${red}%s${close}|\n" "invalid subcommand"
+		exit 2
     esac
 }
 
